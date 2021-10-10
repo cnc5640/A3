@@ -1,0 +1,144 @@
+/** TO DO: Add an import statement that will allow you to work with 
+ *  input dialog boxes and message dialog boxes
+ */
+import javax.swing.JOptionPane;
+/** TO DO: Provide the following information
+ *  Class Name:  		AgentPerformanceComparison.java
+ *  Class Purpose:  	To develop a Java application that lets a user compare the performances 
+ *  					of multiple agents by comparing the total sales of houses each agent has 
+ *  					sold over a period of time in order to find the best-selling agent for the agency.
+ *  Programmer Name:  	Clark Cohen
+ *  Date:  				October 4, 2021
+ */
+
+/** TO DO: Replace the following author tag from rt2362 to your 
+ *  full name
+ *  @author Clark Cohen
+ */
+// Beginning of the class
+public class AgentPerformanceComparison {
+
+	// Beginning of the main() method
+	public static void main(String[] args) {
+		/** TO DO: Declare the input, processing, and output variables 
+		 *  needed to make this application work.  HINT: You will need
+		 *  3 input variables, 5 processing variables and 1 output variable
+		 */
+		int inputNumberOfAgentsInteger; // input #1
+		int inputNumberOfHousesSoldInteger; // input #2
+		double totalSalesDouble = 0.0; // processing #1
+		int houseCounterInteger; // processing #2
+		double maxSalesDouble = 0.0; // processing #3
+		String bestSellingAgentString; // processing #4
+		double inputHousePriceDouble; // input #3
+		int agentCounterInteger; // processing #5
+		String outputMessageString; // output #1
+		
+		/** TO DO: Get input number of agents to compare from the user using  
+		 *  an input dialog box and store the value input by the user in the
+		 *  input variable (inputNumberOfAgentsInteger)
+		 */
+		inputNumberOfAgentsInteger = Integer.parseInt(JOptionPane.showInputDialog("Enter the number of agents to compare:"));
+		
+		/** TO DO: Use a nested for-loop to compare agent performances,
+		 *  find the max sales among all agents, and find the best-selling
+		 *  agent.  Use the outer for-loop and a counter variable
+		 *  (agentCounterInteger) to iterate from 1 to the value
+		 *  in inputNumberOfAgentsInteger.  
+		 */
+		for(agentCounterInteger = 1; agentCounterInteger <= inputNumberOfAgentsInteger; agentCounterInteger++)
+		{
+			/** TO DO: Initialize the total sales (totalSalesDouble) to 
+			 *  0.0
+			 */
+			totalSalesDouble = 0.0;
+			
+			/** TO DO: Get input number of houses sold from the user using  
+			 *  an input dialog box and store the value input by the user 
+			 *  in the input variable (inputNumberOfHousesSoldInteger)
+			 */
+			inputNumberOfHousesSoldInteger = Integer.parseInt(JOptionPane.showInputDialog("Enter the number of houses sold by agent"));
+			
+			/** TO DO: Next, use the inner for-loop and a counter variable
+			 *  (houseCounterInteger) to iterate from 1 to the value in 
+			 *  the variable inputNumberOfHousesSoldInteger
+			 */
+			for(houseCounterInteger = 1; houseCounterInteger <= inputNumberOfHousesSoldInteger; houseCounterInteger++)
+			{
+				/** TO DO: Get input house price from the user using 
+				 *  an input dialog box and store in the input variable 
+				 *  inputHousePriceDouble for this agent
+				 */
+				inputHousePriceDouble = Double.parseDouble(JOptionPane.showInputDialog("Enter the number of houses sold by agent"));
+				
+				/** TO DO: Add each house price to the total sales
+				 *  (totalSalesDouble) for this agent
+				 */
+				totalSalesDouble = inputHousePriceDouble + totalSalesDouble; 
+				
+			} // End of inner for
+			
+			/** TO DO: Use an if statement block to check if the max sales
+			 *  (maxSalesDouble) is less than the total sales for this agent
+			 */
+			if(maxSalesDouble < totalSalesDouble)
+			{
+				/** TO DO: Set the max sales to the total sales for this
+				 *  agent
+				 */
+				maxSalesDouble = totalSalesDouble;
+				
+				/** TO DO: Do String concatenation to add the static String
+				 *  literal "Agent " to the value in the variable
+				 *  agentCounterInteger and store the result in the
+				 *  bestSellingAgentString variable
+				 */
+				bestSellingAgentString = "Agent " + agentCounterInteger; 
+				
+			} // End of if
+			
+			/** TO DO: Do String concatenation to add the static String
+			 *  literal "Total sales for agent number " to
+			 *  the value in the variable agentCounterInteger to 
+			 *  the static String literal " is: " to the value in the
+			 *  variable totalSalesDouble and store the result
+			 *  in the outputMessageString variable.  Make sure that the
+			 *  total sales is displayed with 2-decimal places.
+			 */
+			outputMessageString = "Total sales for agent number " + agentCounterInteger + "is: " + totalSalesDouble;
+			
+			/** TO DO: Display the value in the outputMessageString variable
+			 *  back to the user  
+			 */
+			JOptionPane.showMessageDialog(null, outputMessageString);
+			
+		} // End of outer for
+		
+		/** TO DO: Do String concatenation to add the static String
+		 *  literal "Max sales among all agents is: " to the value 
+		 *  in the variable maxSalesDouble and store the result in
+		 *  the outputMessageString variable.  Make sure that the
+		 *  max sales is displayed with 2-decimal places.
+		 */
+		outputMessageString = "Max sales among all agents is: " + maxSalesDouble; 
+		
+		/** TO DO: Display the value in the outputMessageString variable
+		 *  back to the user  
+		 */
+		JOptionPane.showMessageDialog(null, outputMessageString);
+		
+		/** TO DO: Do String concatenation to add the static String
+		 *  literal "Best selling agent is: " to the value in
+		 *  the variable bestSellingAgentString and store the
+		 *  result in the outputMessageString variable
+		 */
+		outputMessageString = "Best selling agent is: " + bestSellingAgentString;
+		
+		/** TO DO: Display the value in the outputMessageString variable
+		 *  back to the user  
+		 */
+		JOptionPane.showMessageDialog(null, outputMessageString);
+		
+	} // End of the main() method
+
+} // End of the class
